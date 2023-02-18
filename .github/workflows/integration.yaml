@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.8.12'
-          
+
       - name: Load Mysql
         run: mysql -h 127.0.0.1 --port 3307 -u root -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
       
@@ -33,3 +33,4 @@ jobs:
           
       - name: Running Tests
         run: python -m pytest
+        
