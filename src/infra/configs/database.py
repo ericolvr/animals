@@ -14,7 +14,7 @@ HOST = os.getenv("DB_HOST")
 PORT = os.getenv("DB_PORT")
 DB =   os.getenv("DB_NAME")
 
-SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{USER}:{PWD}@{HOST}:{PORT}/{DB}"
+SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://root:secret@localhost:3306/animals"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={}, future=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine, future=True)
