@@ -14,12 +14,16 @@ jobs:
           MYSQL_ROOT_PASSWORD: secret 
         ports:
           - 3307:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
 
     steps:
       - name: Load Mysql
-        run: |
-          sudo /etc/init.d/mysql start
-          mysql -h 127.0.0.1 --port 3307 -u rppt -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
+        run: mysql -h 127.0.0.1 --port 3307 -u root -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
+
+        # run: |
+        #   sudo /etc/init.d/mysql start
+        #   mysql -h 127.0.0.1 --port 3307 -u rppt -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
 
 
       
