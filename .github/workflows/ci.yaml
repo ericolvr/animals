@@ -1,8 +1,18 @@
 name: ci-workflow
 on: [push]
+
 jobs:
   check-application:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
+    services:
+      mysql:
+        image: mysql
+        ports:
+          - 3307:3306
+        env:
+          TEST_DB_USER: root
+          TEST_DB_PWD: secret
+          TEST_DB_NAME: tests
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
