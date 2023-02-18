@@ -21,7 +21,10 @@ jobs:
       - name: Load Mysql
         run: |
           sudo /etc/init.d/mysql start
-          
+          mysql -u root -psecret
+          create database tests
+          use tests
+
       
       - name: Installing dependencies
         run: |
