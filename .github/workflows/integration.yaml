@@ -11,8 +11,6 @@ jobs:
         image: mysql
         env: 
           MYSQL_DATABASE: tests
-          MYSQL_USER: erico
-          MYSQL_PASSWORD: secret
           MYSQL_ROOT_PASSWORD: secret 
         ports:
           - 3307:3306
@@ -21,9 +19,8 @@ jobs:
       - name: Load Mysql
         run: |
           sudo /etc/init.d/mysql start
-          mysql -u root -psecret;
-          create database tests;
-          use tests;
+          mysql -h 127.0.0.1 --port 3307 -u rppt -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
+
 
       
       - name: Installing dependencies
