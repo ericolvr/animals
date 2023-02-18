@@ -20,12 +20,6 @@ jobs:
     steps:
       - name: Load Mysql
         run: mysql -h 127.0.0.1 --port 3307 -u root -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
-
-        # run: |
-        #   sudo /etc/init.d/mysql start
-        #   mysql -h 127.0.0.1 --port 3307 -u rppt -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
-
-
       
       - name: Installing dependencies
         run: |
