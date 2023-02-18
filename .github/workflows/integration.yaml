@@ -21,7 +21,7 @@ jobs:
       - name: Load Mysql
         run: |
           sudo /etc/init.d/mysql start
-          mysql -u erico -psecret;
+          mysql -u root -psecret;
           create database tests;
           use tests;
 
