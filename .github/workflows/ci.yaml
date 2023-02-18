@@ -1,0 +1,12 @@
+name: ci-workflow
+on: [push]
+jobs:
+  check-application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8.12'
+      - run: python -m pytest -s -v
+      - run: uvicorn src.main:app --reload 
