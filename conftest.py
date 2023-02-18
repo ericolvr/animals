@@ -18,7 +18,7 @@ NAME = os.getenv("TEST_DB_NAME")
 print(USER, PWD, HOST, PORT, NAME)
 
 
-SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{USER}:{PWD}@{HOST}:{PORT}/{NAME}"
+SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://root:secret@localhost:3307/tests"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={}, future=True)
 
