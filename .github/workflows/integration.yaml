@@ -32,7 +32,7 @@ jobs:
             'created_at' datetime DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY ('id'),
             UNIQUE KEY 'ix_breads_name' ('name')
-          ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+          ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
       
       - name: Installing dependencies
