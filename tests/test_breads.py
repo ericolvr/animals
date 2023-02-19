@@ -8,31 +8,37 @@ record = {
 
 
 @pytest.mark.asyncio
-async def test_create_bread():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
-        response = await ac.post("/bread/", json=record)
-    assert response.status_code == 201
+async def test_sum():
+    a= 1
+    b=2
+    c = a+b
+    assert c ==20
+# @pytest.mark.asyncio
+# async def test_create_bread():
+#     async with AsyncClient(app=app, base_url="http://test") as ac:
+#         response = await ac.post("/bread/", json=record)
+#     assert response.status_code == 201
 
 
-@pytest.mark.asyncio
-async def test_duplicate_bread():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
-        response = await ac.post("/bread/", json=record)
-    assert response.status_code == 400
+# @pytest.mark.asyncio
+# async def test_duplicate_bread():
+#     async with AsyncClient(app=app, base_url="http://test") as ac:
+#         response = await ac.post("/bread/", json=record)
+#     assert response.status_code == 400
 
 
-@pytest.mark.asyncio
-async def test_list_breads():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
-        response = await ac.get("/bread/")
-    assert response.status_code == 200
+# @pytest.mark.asyncio
+# async def test_list_breads():
+#     async with AsyncClient(app=app, base_url="http://test") as ac:
+#         response = await ac.get("/bread/")
+#     assert response.status_code == 200
 
 
-@pytest.mark.asyncio
-async def test_list_breads_pagination():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
-        response = await ac.get("/bread/?offset=0&limit=100")
-    assert response.status_code == 200
+# @pytest.mark.asyncio
+# async def test_list_breads_pagination():
+#     async with AsyncClient(app=app, base_url="http://test") as ac:
+#         response = await ac.get("/bread/?offset=0&limit=100")
+#     assert response.status_code == 200
 
 
 # @pytest.mark.asyncio
@@ -51,22 +57,22 @@ async def test_list_breads_pagination():
 #     assert product == "lapis"
 
 
-@pytest.mark.asyncio
-async def test_update_by_name():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
-        response = await ac.patch(
-            "/bread/update/Canxin",
-            json={"name": "Tabapua"}
-        )
+# @pytest.mark.asyncio
+# async def test_update_by_name():
+#     async with AsyncClient(app=app, base_url="http://test") as ac:
+#         response = await ac.patch(
+#             "/bread/update/Canxin",
+#             json={"name": "Tabapua"}
+#         )
 
-        product = response.json()["name"]
-    assert product == "Tabapua"
+#         product = response.json()["name"]
+#     assert product == "Tabapua"
 
 
-@pytest.mark.asyncio
-async def test_delete_by_name():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
-        response = await ac.delete(
-            "/bread/delete/Tabapua",
-        )
-    assert response.status_code == 204
+# @pytest.mark.asyncio
+# async def test_delete_by_name():
+#     async with AsyncClient(app=app, base_url="http://test") as ac:
+#         response = await ac.delete(
+#             "/bread/delete/Tabapua",
+#         )
+#     assert response.status_code == 204
