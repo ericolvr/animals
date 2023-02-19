@@ -26,14 +26,6 @@ jobs:
       - name: Load Mysql
         run: |
           mysql -h 127.0.0.1 --port 3307 -u root -psecret -e 'CREATE DATABASE IF NOT EXISTS tests;'
-          CREATE TABLE breads (
-            id int(11) NOT NULL AUTO_INCREMENT,
-            name varchar(50) DEFAULT NULL,
-            created_at datetime DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (id),
-            UNIQUE KEY ix_breads_name (name)
-          ) ENGINE=InnoDB DEFAULT CHARSET=latin1
-
       
       - name: Installing dependencies
         run: |
