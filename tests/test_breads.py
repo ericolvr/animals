@@ -9,8 +9,8 @@ record = {
 
 @pytest.mark.asyncio
 async def test_sum():
-    a= 1
-    b=2
+    a= 10
+    b= 10
     c = a+b
     assert c ==20
 # @pytest.mark.asyncio
