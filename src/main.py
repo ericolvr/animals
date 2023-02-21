@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from api.routes.breads import bread_routes
 from api.routes.animals import animal_routes
+from api.routes.weights import weight_routes
 
 app = FastAPI()
 
@@ -21,3 +22,4 @@ app.add_middleware(
 
 app.include_router(bread_routes)
 app.include_router(animal_routes)
+app.include_router(weight_routes)
